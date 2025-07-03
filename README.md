@@ -29,4 +29,9 @@ Phát triển Phần mềm quản lý - Nhóm 01
    - Gửi dữ liệu từ view lên controller => thực hiện submit form
    - Controller nhận được dữ liệu từ view gửi lên: [HttpPost] và parameter (trùng tên với thẻ input trên view)
    - Gửi dữ liệu từ controller về view: ViewBag/ViewData/ViewTemplate
-6. 
+6. Bài học ngày 03/07/2025
+   - Cài đặt các package cần thiết cho project
+   - Cấu hình kết nối tới CSDL: ApplicationDbContext.cs, appsettings.json và Program.cs
+   - Sử dụng code first (Migrations) để quản lý phiên bản CSDL: dotnet ef migrations add MIGRATION_NAME và dotnet ef database update
+   - Xây dựng controller và view
+7. 
