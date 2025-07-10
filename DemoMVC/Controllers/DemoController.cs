@@ -1,4 +1,5 @@
 using DemoMVC.Models;
+using DemoMVC.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoMVC.Controllers

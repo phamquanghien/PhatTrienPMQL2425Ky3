@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DemoMVC.Data;
 using DemoMVC.Models;
+using DemoMVC.Models.Entities;
+using DemoMVC.Models.Process;
 
 namespace DemoMVC.Controllers
 {
@@ -46,7 +48,18 @@ namespace DemoMVC.Controllers
         // GET: Student/Create
         public IActionResult Create()
         {
-            return View();
+            AutoGenerateId autoGenerateId = new AutoGenerateId();
+            //1. Lay ra ban ghi moi nhat cua Student
+            var student = _context.Students.OrderByDescending(s => s.StudentID).FirstOrDefault();
+            //2. Neu student == null thi gan StudentID = ST0
+            var studentID = student == null ? "ST000" : student.StudentID;
+            var newStudentID = autoGenerateId.GenerateId(studentID);
+            var newStudent = new Student
+            {
+                StudentID = newStudentID,
+                FullName = string.Empty
+            };
+            return View(newStudent);
         }
 
         // POST: Student/Create
